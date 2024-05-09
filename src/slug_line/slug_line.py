@@ -39,7 +39,7 @@ def ensure_slug_line(file_path: Path, full_path=False) -> Changed:
     correct_slug_line = f"#: {filename}\n"
 
     # Check if the first line is a slug line
-    if lines and re.match(r"^#\:\s\w+\.py\n$", lines[0]):
+    if lines and re.match(r"^#\:\s[\w\\/]+\.py\n$", lines[0]):
         # Slug line exists, verify and correct if necessary
         if lines[0] != correct_slug_line:
             lines[0] = correct_slug_line
